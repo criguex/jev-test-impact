@@ -128,7 +128,7 @@ npm run bench -- --execute   # select per commit with every policy and time the 
 npm run bench -- --check     # CI: offline replay must match bench/results.json and miss nothing
 ```
 
-The demo history is stored as `git format-patch` files and rebuilt with fixed dates, so the commit SHAs come out the same on every machine.
+The demo history is stored as `git format-patch` files and rebuilt with fixed dates, so the commit SHAs come out the same on every machine. `demo/` is the baseline commit of that history, so any edit to it makes the recorded ground truth stale, and `--check` fails until `bench:truth` and `bench` are run again.
 
 ## How this differs from `jev-test-filter`
 

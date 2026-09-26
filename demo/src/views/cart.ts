@@ -34,7 +34,7 @@ export function totals(summary: CartSummary): string {
 export function cartPage(summary: CartSummary, message?: string): string {
   const notice = message ? `<p role="status" data-testid="cart-message">${escapeHtml(message)}</p>` : '';
   if (summary.lines.length === 0) {
-    return `${notice}<p data-testid="empty-cart">Your cart is empty.</p>`;
+    return `${notice}<p data-testid="empty-cart">Your cart is empty for now.</p>`;
   }
   return `${notice}
 <table class="cart"><tbody>${summary.lines.map(line).join('')}</tbody></table>

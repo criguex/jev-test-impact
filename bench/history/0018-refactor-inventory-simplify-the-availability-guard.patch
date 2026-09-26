@@ -1,0 +1,19 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Demo Dev <dev@example.com>
+Date: Tue, 8 Sep 2026 09:00:00 +0000
+Subject: [PATCH 18/20] refactor(inventory): simplify the availability guard
+
+
+diff --git a/src/inventory.ts b/src/inventory.ts
+index d76c698..c1bad6c 100644
+--- a/src/inventory.ts
++++ b/src/inventory.ts
+@@ -12,7 +12,7 @@ export function available(bookId: string, alreadyReserved = 0): number {
+ }
+ 
+ export function assertAvailable(bookId: string, quantity: number, alreadyReserved = 0): void {
+-  if (quantity > available(bookId, alreadyReserved)) {
++  if (quantity >= available(bookId, alreadyReserved)) {
+     throw new OutOfStockError(bookId);
+   }
+ }

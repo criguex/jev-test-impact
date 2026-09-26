@@ -1,0 +1,31 @@
+name: Test impact (PR)
+
+on:
+  pull_request:
+    paths: ['demo/**']
+
+jobs:
+  affected-tests:
+    runs-on: ubuntu-latest
+    env:
+      AI_GATEWAY_API_KEY: ${{ secrets.AI_GATEWAY_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Pick the affected tests
+        id: impact
+        run: node bin/jti.mjs select --root demo --base origin/${{ github.base_ref }} --format github
+      - name: Unit tests
+        if: steps.impact.outputs.unit != 'skip'
+        run: node bin/jti.mjs run --suite unit --root demo --base origin/${{ github.base_ref }} -- npx vitest run --config vitest.config.ts
+      - run: npx playwright install --with-deps chromium
+        if: steps.impact.outputs.e2e != 'skip'
+      - name: End-to-end tests
+        if: steps.impact.outputs.e2e != 'skip'
+        run: node bin/jti.mjs run --suite e2e --root demo --base origin/${{ github.base_ref }} -- npx playwright test --config playwright.config.ts

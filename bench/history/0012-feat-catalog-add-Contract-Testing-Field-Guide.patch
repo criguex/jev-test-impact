@@ -1,0 +1,18 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Demo Dev <dev@example.com>
+Date: Sun, 6 Sep 2026 09:00:00 +0000
+Subject: [PATCH 12/20] feat(catalog): add Contract Testing Field Guide
+
+
+diff --git a/src/catalog.json b/src/catalog.json
+index e3bb2b5..0de7bbb 100644
+--- a/src/catalog.json
++++ b/src/catalog.json
+@@ -10,5 +10,6 @@
+   { "id": "b09", "title": "Testing the Browser", "author": "Sofia Marin", "priceCents": 3300, "stock": 7, "category": "testing" },
+   { "id": "b10", "title": "Refactoring Legacy Apps", "author": "Mei Tanaka", "priceCents": 4100, "stock": 1, "category": "programming" },
+   { "id": "b11", "title": "Accessible Interfaces", "author": "Ana Ruiz", "priceCents": 2700, "stock": 9, "category": "design" },
+-  { "id": "b12", "title": "Data for Product Teams", "author": "Omar Haddad", "priceCents": 3100, "stock": 5, "category": "design" }
++  { "id": "b12", "title": "Data for Product Teams", "author": "Omar Haddad", "priceCents": 3100, "stock": 5, "category": "design" },
++  { "id": "b13", "title": "Contract Testing Field Guide", "author": "Liam Chen", "priceCents": 3400, "stock": 6, "category": "testing" }
+ ]

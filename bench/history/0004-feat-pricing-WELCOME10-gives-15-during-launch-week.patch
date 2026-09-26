@@ -1,0 +1,19 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Demo Dev <dev@example.com>
+Date: Thu, 3 Sep 2026 12:00:00 +0000
+Subject: [PATCH 04/20] feat(pricing): WELCOME10 gives 15% during launch week
+
+
+diff --git a/src/pricing.ts b/src/pricing.ts
+index c2b0288..6ebec73 100644
+--- a/src/pricing.ts
++++ b/src/pricing.ts
+@@ -8,7 +8,7 @@ export interface Discount {
+ type Rule = (subtotal: Cents) => Cents;
+ 
+ const rules: Record<string, Rule> = {
+-  WELCOME10: (subtotal) => percentOf(subtotal, 10),
++  WELCOME10: (subtotal) => percentOf(subtotal, 15),
+   BULK5: (subtotal) => (subtotal >= 5000 ? 500 : 0),
+   HALFTEST: (subtotal) => Math.min(percentOf(subtotal, 50), 2000),
+ };

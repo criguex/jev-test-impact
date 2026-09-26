@@ -1,0 +1,19 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Demo Dev <dev@example.com>
+Date: Fri, 4 Sep 2026 15:00:00 +0000
+Subject: [PATCH 08/20] fix(layout): keep the cart-count test id on the badge
+
+
+diff --git a/src/views/layout.ts b/src/views/layout.ts
+index 4132307..bff6d30 100644
+--- a/src/views/layout.ts
++++ b/src/views/layout.ts
+@@ -23,7 +23,7 @@ export function layout(options: LayoutOptions, body: string): string {
+     <a href="/" class="brand">Paper Lantern Books</a>
+     <form action="/search" role="search"><input name="q" aria-label="Search books" placeholder="Search"></form>
+     <nav>
+-      <a href="/cart" class="cart-link">Cart <span class="badge" data-testid="cart-badge">${options.cartCount}</span></a>
++      <a href="/cart" class="cart-link">Cart <span class="badge" data-testid="cart-count">${options.cartCount}</span></a>
+       ${account}
+     </nav>
+   </header>

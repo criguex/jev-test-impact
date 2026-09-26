@@ -1,0 +1,18 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Demo Dev <dev@example.com>
+Date: Tue, 8 Sep 2026 15:00:00 +0000
+Subject: [PATCH 20/20] chore(e2e): lower the per-test timeout to 15s
+
+
+diff --git a/playwright.config.ts b/playwright.config.ts
+index 9122e94..6f00108 100644
+--- a/playwright.config.ts
++++ b/playwright.config.ts
+@@ -7,6 +7,7 @@ const port = Number(process.env.DEMO_PORT ?? 4173);
+ export default defineConfig({
+   testDir: `${root}/tests/e2e`,
+   fullyParallel: true,
++  timeout: 15_000,
+   reporter: process.env.CI ? [['list'], ['json', { outputFile: `${root}/test-results/e2e.json` }]] : 'list',
+   use: { baseURL: `http://localhost:${port}`, trace: 'retain-on-failure' },
+   projects: [{ name: 'chromium', use: { ...devices['Desktop Chrome'] } }],

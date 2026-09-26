@@ -1,0 +1,53 @@
+{
+  "name": "jev-test-impact",
+  "version": "0.1.0",
+  "description": "Run only the tests your change touched: deterministic test impact analysis first, Jev decides only the ambiguous remainder, fail-safe to the full suite.",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "jti": "./bin/jti.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "jti": "tsx src/cli.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "demo:unit": "vitest run --config demo/vitest.config.ts",
+    "demo:e2e": "playwright test --config demo/playwright.config.ts",
+    "bench:history": "tsx bench/build-history.ts",
+    "bench:truth": "tsx bench/truth.ts",
+    "bench": "tsx bench/replay.ts"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "@types/node": "^22.20.4",
+    "vitest": "^5.0.2"
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true
+  },
+  "dependencies": {
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3"
+  },
+  "files": [
+    "bin",
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/criguex/jev-test-impact.git"
+  },
+  "keywords": [
+    "test-impact-analysis",
+    "playwright",
+    "vitest",
+    "ci",
+    "jev",
+    "typesafe"
+  ]
+}

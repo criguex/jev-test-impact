@@ -1,0 +1,20 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Demo Dev <dev@example.com>
+Date: Sat, 5 Sep 2026 15:00:00 +0000
+Subject: [PATCH 11/20] fix(auth): back to 8 characters until the migration
+ ships
+
+
+diff --git a/src/auth.ts b/src/auth.ts
+index 4d935ee..dd79f7f 100644
+--- a/src/auth.ts
++++ b/src/auth.ts
+@@ -9,7 +9,7 @@ export interface User {
+ const users: User[] = [{ email: 'reader@example.com', name: 'Reader', password: 'open-sesame1' }];
+ const sessions = new Map<string, string>();
+ 
+-export const MIN_PASSWORD_LENGTH = 10;
++export const MIN_PASSWORD_LENGTH = 8;
+ 
+ export function validatePassword(password: string): string[] {
+   const problems: string[] = [];

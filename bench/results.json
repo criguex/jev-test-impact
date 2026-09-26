@@ -1,0 +1,1175 @@
+{
+  "summary": [
+    {
+      "sha": "4fa39083435ad2e022a363d3bca183f615010c35",
+      "subject": "docs: describe local setup in README",
+      "newlyFailing": [],
+      "selected": {
+        "naive": {
+          "selected": 4,
+          "missed": []
+        },
+        "safe": {
+          "selected": 4,
+          "missed": []
+        },
+        "jev": {
+          "selected": 4,
+          "missed": []
+        }
+      }
+    },
+    {
+      "sha": "c292519837f9a4605a3db522366219ee0b3bf383",
+      "subject": "feat(shipping): free standard shipping from $100",
+      "newlyFailing": [],
+      "selected": {
+        "naive": {
+          "selected": 18,
+          "missed": []
+        },
+        "safe": {
+          "selected": 30,
+          "missed": []
+        },
+        "jev": {
+          "selected": 28,
+          "missed": []
+        }
+      }
+    },
+    {
+      "sha": "5abb377474bd04a55c701f7c1cf1b855da0c499f",
+      "subject": "refactor(money): extract currency symbols table",
+      "newlyFailing": [],
+      "selected": {
+        "naive": {
+          "selected": 45,
+          "missed": []
+        },
+        "safe": {
+          "selected": 59,
+          "missed": []
+        },
+        "jev": {
+          "selected": 51,
+          "missed": []
+        }
+      }
+    },
+    {
+      "sha": "2e8a68f5bd7a6a04fb15736e0574f832ddaeed80",
+      "subject": "feat(pricing): WELCOME10 gives 15% during launch week",
+      "newlyFailing": [
+        "tests/unit/cart.test.ts::cart > applies the discount before tax",
+        "tests/unit/pricing.test.ts::pricing > gives ten percent with WELCOME10",
+        "tests/e2e/cart.spec.ts::cart > a valid discount code lowers the total @cart"
+      ],
+      "selected": {
+        "naive": {
+          "selected": 18,
+          "missed": [
+            "tests/e2e/cart.spec.ts::cart > a valid discount code lowers the total @cart"
+          ]
+        },
+        "safe": {
+          "selected": 30,
+          "missed": []
+        },
+        "jev": {
+          "selected": 23,
+          "missed": []
+        }
+      }
+    },
+    {
+      "sha": "ee8e9ff637338bfc105d91b23f0cff04beb1bced",
+      "subject": "revert: WELCOME10 back to 10% until marketing confirms",
+      "newlyFailing": [],
+      "selected": {
+        "naive": {
+          "selected": 18,
+          "missed": []
+        },
+        "safe": {
+          "selected": 30,
+          "missed": []
+        },
+        "jev": {
+          "selected": 22,
+          "missed": []
+        }
+      }
+    },
+    {
+      "sha": "3d46ec8dca8b158ca8b3d210623c164d501ebbd2",
+      "subject": "style: warmer accent color and roomier book cards",
+      "newlyFailing": [],
+      "selected": {
+        "naive": {
+          "selected": 4,
+          "missed": []
+        },
+        "safe": {
+          "selected": 18,
+          "missed": []
+        },
+        "jev": {
+          "selected": 10,
+          "missed": []
+        }
+      }
+    },
+    {
+      "sha": "3d8a57a69b564f890343a5550d3119674eb8f829",
+      "subject": "feat(layout): show the cart count as a badge",
+      "newlyFailing": [
+        "tests/e2e/cart.spec.ts::cart > adding a book updates the header counter @cart",
+        "tests/e2e/cart.spec.ts::cart > removing the last line empties the cart @cart",
+        "tests/e2e/checkout.spec.ts::checkout > placing an order confirms and empties the cart @checkout @smoke"
+      ],
+      "selected": {
+        "naive": {
+          "selected": 4,
+          "missed": [
+            "tests/e2e/cart.spec.ts::cart > adding a book updates the header counter @cart",
+            "tests/e2e/cart.spec.ts::cart > removing the last line empties the cart @cart"
+          ]
+        },
+        "safe": {
+          "selected": 18,
+          "missed": []
+        },
+        "jev": {
+          "selected": 7,
+          "missed": []
+        }
+      }
+    },
+    {
+      "sha": "9dfab9a1e742c44014f9cf39ffbd7816ae3163d4",
+      "subject": "fix(layout): keep the cart-count test id on the badge",
+      "newlyFailing": [],
+      "selected": {
+        "naive": {
+          "selected": 4,
+          "missed": []
+        },
+        "safe": {
+          "selected": 18,
+          "missed": []
+        },
+        "jev": {
+          "selected": 6,
+          "missed": []
+        }
+      }
+    },
+    {
+      "sha": "4b2fa795b22d26b2a46c665f1d39a8878ddec0bb",
+      "subject": "feat(search): match author names too",
+      "newlyFailing": [],
+      "selected": {
+        "naive": {
+          "selected": 11,
+          "missed": []
+        },
+        "safe": {
+          "selected": 23,
+          "missed": []
+        },
+        "jev": {
+          "selected": 12,
+          "missed": []
+        }
+      }
+    },
+    {
+      "sha": "17911f4b53dbc27a363ba49866cd1e4b2131e9bf",
+      "subject": "chore(auth): require 10-character passwords",
+      "newlyFailing": [
+        "tests/unit/auth.test.ts::auth > accepts a long password with a digit",
+        "tests/unit/auth.test.ts::auth > explains short passwords"
+      ],
+      "selected": {
+        "naive": {
+          "selected": 12,
+          "missed": []
+        },
+        "safe": {
+          "selected": 24,
+          "missed": []
+        },
+        "jev": {
+          "selected": 12,
+          "missed": []
+        }
+      }
+    },
+    {
+      "sha": "1276b240b75d9e2307a8a7629559295588863d17",
+      "subject": "fix(auth): back to 8 characters until the migration ships",
+      "newlyFailing": [],
+      "selected": {
+        "naive": {
+          "selected": 12,
+          "missed": []
+        },
+        "safe": {
+          "selected": 24,
+          "missed": []
+        },
+        "jev": {
+          "selected": 12,
+          "missed": []
+        }
+      }
+    },
+    {
+      "sha": "287c3574913575e3e3f553e29573374418ec4f61",
+      "subject": "feat(catalog): add Contract Testing Field Guide",
+      "newlyFailing": [
+        "tests/unit/catalog.test.ts::catalog > lists the twelve books in stock order",
+        "tests/unit/catalog.test.ts::catalog > groups books by category",
+        "tests/unit/search.test.ts::search > matches titles case-insensitively",
+        "tests/e2e/catalog.spec.ts::catalog > home page lists every book @smoke",
+        "tests/e2e/health.spec.ts::health endpoint reports the catalog size @smoke"
+      ],
+      "selected": {
+        "naive": {
+          "selected": 26,
+          "missed": []
+        },
+        "safe": {
+          "selected": 40,
+          "missed": []
+        },
+        "jev": {
+          "selected": 28,
+          "missed": []
+        }
+      }
+    },
+    {
+      "sha": "e6a241e1a141af1247aad0bd4b563314c4ef9385",
+      "subject": "test: update catalog expectations for 13 books",
+      "newlyFailing": [],
+      "selected": {
+        "naive": {
+          "selected": 17,
+          "missed": []
+        },
+        "safe": {
+          "selected": 17,
+          "missed": []
+        },
+        "jev": {
+          "selected": 17,
+          "missed": []
+        }
+      }
+    },
+    {
+      "sha": "39b4fcf5473546b98326413ce4e75dbdf0d9b921",
+      "subject": "refactor(server): move static routes into a lookup table",
+      "newlyFailing": [],
+      "selected": {
+        "naive": {
+          "selected": 4,
+          "missed": []
+        },
+        "safe": {
+          "selected": 18,
+          "missed": []
+        },
+        "jev": {
+          "selected": 17,
+          "missed": []
+        }
+      }
+    },
+    {
+      "sha": "80063db7461cf323098ecd533fdc90d070c6b63e",
+      "subject": "feat(checkout): accept the shipping query parameter from the new link",
+      "newlyFailing": [
+        "tests/e2e/checkout.spec.ts::checkout > switching to store pickup removes shipping @checkout"
+      ],
+      "selected": {
+        "naive": {
+          "selected": 4,
+          "missed": [
+            "tests/e2e/checkout.spec.ts::checkout > switching to store pickup removes shipping @checkout"
+          ]
+        },
+        "safe": {
+          "selected": 18,
+          "missed": []
+        },
+        "jev": {
+          "selected": 11,
+          "missed": []
+        }
+      }
+    },
+    {
+      "sha": "db1606f59e3c06c124718d80eb928c54b418d6db",
+      "subject": "fix(checkout): still honour the method parameter used by the form",
+      "newlyFailing": [],
+      "selected": {
+        "naive": {
+          "selected": 4,
+          "missed": []
+        },
+        "safe": {
+          "selected": 18,
+          "missed": []
+        },
+        "jev": {
+          "selected": 11,
+          "missed": []
+        }
+      }
+    },
+    {
+      "sha": "42bdebc15c0c3f58818a1161b0ce13cc5cdd57a7",
+      "subject": "feat(cart): show the author next to each cart line",
+      "newlyFailing": [],
+      "selected": {
+        "naive": {
+          "selected": 4,
+          "missed": []
+        },
+        "safe": {
+          "selected": 18,
+          "missed": []
+        },
+        "jev": {
+          "selected": 12,
+          "missed": []
+        }
+      }
+    },
+    {
+      "sha": "6813feceaf1651fc3d19f00fc3cf47ce28693a2f",
+      "subject": "refactor(inventory): simplify the availability guard",
+      "newlyFailing": [
+        "tests/unit/cart.test.ts::cart > refuses to exceed stock"
+      ],
+      "selected": {
+        "naive": {
+          "selected": 13,
+          "missed": []
+        },
+        "safe": {
+          "selected": 27,
+          "missed": []
+        },
+        "jev": {
+          "selected": 23,
+          "missed": []
+        }
+      }
+    },
+    {
+      "sha": "29b72f56aa0db951eb602b9374531f55e85973e1",
+      "subject": "revert: availability guard rejected the last copy in stock",
+      "newlyFailing": [],
+      "selected": {
+        "naive": {
+          "selected": 13,
+          "missed": []
+        },
+        "safe": {
+          "selected": 27,
+          "missed": []
+        },
+        "jev": {
+          "selected": 23,
+          "missed": []
+        }
+      }
+    },
+    {
+      "sha": "618a410050ec0d8f7d9251353671e459b4838d20",
+      "subject": "chore(e2e): lower the per-test timeout to 15s",
+      "newlyFailing": [],
+      "selected": {
+        "naive": {
+          "selected": 66,
+          "missed": []
+        },
+        "safe": {
+          "selected": 66,
+          "missed": []
+        },
+        "jev": {
+          "selected": 66,
+          "missed": []
+        }
+      }
+    }
+  ],
+  "results": [
+    {
+      "sha": "4fa39083435ad2e022a363d3bca183f615010c35",
+      "subject": "docs: describe local setup in README",
+      "changed": [
+        "README.md"
+      ],
+      "total": 64,
+      "newlyFailing": [],
+      "policies": {
+        "naive": {
+          "mode": "partial",
+          "selected": 4,
+          "missed": [],
+          "testMs": 1055,
+          "wallMs": 3060
+        },
+        "safe": {
+          "mode": "partial",
+          "selected": 4,
+          "missed": [],
+          "testMs": 1055,
+          "wallMs": 2023
+        },
+        "jev": {
+          "mode": "partial",
+          "selected": 4,
+          "missed": [],
+          "testMs": 1055,
+          "wallMs": 1948
+        }
+      },
+      "caughtOnlyByJev": [],
+      "fullTestMs": 6318,
+      "fullWallMs": 4128
+    },
+    {
+      "sha": "c292519837f9a4605a3db522366219ee0b3bf383",
+      "subject": "feat(shipping): free standard shipping from $100",
+      "changed": [
+        "src/cart.ts",
+        "src/shipping.ts",
+        "tests/unit/shipping.test.ts"
+      ],
+      "total": 65,
+      "newlyFailing": [],
+      "policies": {
+        "naive": {
+          "mode": "partial",
+          "selected": 18,
+          "missed": [],
+          "testMs": 2024,
+          "wallMs": 3579
+        },
+        "safe": {
+          "mode": "partial",
+          "selected": 30,
+          "missed": [],
+          "testMs": 6619,
+          "wallMs": 4034
+        },
+        "jev": {
+          "mode": "partial",
+          "selected": 28,
+          "missed": [],
+          "testMs": 5234,
+          "wallMs": 3584
+        }
+      },
+      "caughtOnlyByJev": [],
+      "fullTestMs": 6655,
+      "fullWallMs": 4628
+    },
+    {
+      "sha": "5abb377474bd04a55c701f7c1cf1b855da0c499f",
+      "subject": "refactor(money): extract currency symbols table",
+      "changed": [
+        "src/money.ts"
+      ],
+      "total": 65,
+      "newlyFailing": [],
+      "policies": {
+        "naive": {
+          "mode": "partial",
+          "selected": 45,
+          "missed": [],
+          "testMs": 1266,
+          "wallMs": 3105
+        },
+        "safe": {
+          "mode": "partial",
+          "selected": 59,
+          "missed": [],
+          "testMs": 7240,
+          "wallMs": 3760
+        },
+        "jev": {
+          "mode": "partial",
+          "selected": 51,
+          "missed": [],
+          "testMs": 4041,
+          "wallMs": 3975
+        }
+      },
+      "caughtOnlyByJev": [],
+      "fullTestMs": 7241,
+      "fullWallMs": 4823
+    },
+    {
+      "sha": "2e8a68f5bd7a6a04fb15736e0574f832ddaeed80",
+      "subject": "feat(pricing): WELCOME10 gives 15% during launch week",
+      "changed": [
+        "src/pricing.ts"
+      ],
+      "total": 65,
+      "newlyFailing": [
+        "tests/unit/cart.test.ts::cart > applies the discount before tax",
+        "tests/unit/pricing.test.ts::pricing > gives ten percent with WELCOME10",
+        "tests/e2e/cart.spec.ts::cart > a valid discount code lowers the total @cart"
+      ],
+      "policies": {
+        "naive": {
+          "mode": "partial",
+          "selected": 18,
+          "missed": [
+            "tests/e2e/cart.spec.ts::cart > a valid discount code lowers the total @cart"
+          ],
+          "testMs": 1850,
+          "wallMs": 3381
+        },
+        "safe": {
+          "mode": "partial",
+          "selected": 30,
+          "missed": [],
+          "testMs": 11002,
+          "wallMs": 8785
+        },
+        "jev": {
+          "mode": "partial",
+          "selected": 23,
+          "missed": [],
+          "testMs": 8391,
+          "wallMs": 7815
+        }
+      },
+      "caughtOnlyByJev": [
+        {
+          "id": "tests/e2e/cart.spec.ts::cart > a valid discount code lowers the total @cart",
+          "probability": 0.93
+        }
+      ],
+      "fullTestMs": 11043,
+      "fullWallMs": 9097
+    },
+    {
+      "sha": "ee8e9ff637338bfc105d91b23f0cff04beb1bced",
+      "subject": "revert: WELCOME10 back to 10% until marketing confirms",
+      "changed": [
+        "src/pricing.ts"
+      ],
+      "total": 65,
+      "newlyFailing": [],
+      "policies": {
+        "naive": {
+          "mode": "partial",
+          "selected": 18,
+          "missed": [],
+          "testMs": 6377,
+          "wallMs": 2974
+        },
+        "safe": {
+          "mode": "partial",
+          "selected": 30,
+          "missed": [],
+          "testMs": 15483,
+          "wallMs": 4616
+        },
+        "jev": {
+          "mode": "partial",
+          "selected": 22,
+          "missed": [],
+          "testMs": 9453,
+          "wallMs": 3274
+        }
+      },
+      "caughtOnlyByJev": [],
+      "fullTestMs": 15523,
+      "fullWallMs": 10756
+    },
+    {
+      "sha": "3d46ec8dca8b158ca8b3d210623c164d501ebbd2",
+      "subject": "style: warmer accent color and roomier book cards",
+      "changed": [
+        "public/styles.css"
+      ],
+      "total": 65,
+      "newlyFailing": [],
+      "policies": {
+        "naive": {
+          "mode": "partial",
+          "selected": 4,
+          "missed": [],
+          "testMs": 1660,
+          "wallMs": 1824
+        },
+        "safe": {
+          "mode": "partial",
+          "selected": 18,
+          "missed": [],
+          "testMs": 7869,
+          "wallMs": 3154
+        },
+        "jev": {
+          "mode": "partial",
+          "selected": 10,
+          "missed": [],
+          "testMs": 3460,
+          "wallMs": 2971
+        }
+      },
+      "caughtOnlyByJev": [],
+      "fullTestMs": 7929,
+      "fullWallMs": 7017
+    },
+    {
+      "sha": "3d8a57a69b564f890343a5550d3119674eb8f829",
+      "subject": "feat(layout): show the cart count as a badge",
+      "changed": [
+        "src/views/layout.ts"
+      ],
+      "total": 65,
+      "newlyFailing": [
+        "tests/e2e/cart.spec.ts::cart > adding a book updates the header counter @cart",
+        "tests/e2e/cart.spec.ts::cart > removing the last line empties the cart @cart",
+        "tests/e2e/checkout.spec.ts::checkout > placing an order confirms and empties the cart @checkout @smoke"
+      ],
+      "policies": {
+        "naive": {
+          "mode": "partial",
+          "selected": 4,
+          "missed": [
+            "tests/e2e/cart.spec.ts::cart > adding a book updates the header counter @cart",
+            "tests/e2e/cart.spec.ts::cart > removing the last line empties the cart @cart"
+          ],
+          "testMs": 6362,
+          "wallMs": 7569
+        },
+        "safe": {
+          "mode": "partial",
+          "selected": 18,
+          "missed": [],
+          "testMs": 21882,
+          "wallMs": 9177
+        },
+        "jev": {
+          "mode": "partial",
+          "selected": 7,
+          "missed": [],
+          "testMs": 17748,
+          "wallMs": 7472
+        }
+      },
+      "caughtOnlyByJev": [
+        {
+          "id": "tests/e2e/cart.spec.ts::cart > adding a book updates the header counter @cart",
+          "probability": 0.95
+        },
+        {
+          "id": "tests/e2e/cart.spec.ts::cart > removing the last line empties the cart @cart",
+          "probability": 0.92
+        }
+      ],
+      "fullTestMs": 21947,
+      "fullWallMs": 11596
+    },
+    {
+      "sha": "9dfab9a1e742c44014f9cf39ffbd7816ae3163d4",
+      "subject": "fix(layout): keep the cart-count test id on the badge",
+      "changed": [
+        "src/views/layout.ts"
+      ],
+      "total": 65,
+      "newlyFailing": [],
+      "policies": {
+        "naive": {
+          "mode": "partial",
+          "selected": 4,
+          "missed": [],
+          "testMs": 1862,
+          "wallMs": 2609
+        },
+        "safe": {
+          "mode": "partial",
+          "selected": 18,
+          "missed": [],
+          "testMs": 11208,
+          "wallMs": 3304
+        },
+        "jev": {
+          "mode": "partial",
+          "selected": 6,
+          "missed": [],
+          "testMs": 3389,
+          "wallMs": 3077
+        }
+      },
+      "caughtOnlyByJev": [],
+      "fullTestMs": 11247,
+      "fullWallMs": 6917
+    },
+    {
+      "sha": "4b2fa795b22d26b2a46c665f1d39a8878ddec0bb",
+      "subject": "feat(search): match author names too",
+      "changed": [
+        "src/search.ts",
+        "tests/unit/search.test.ts"
+      ],
+      "total": 66,
+      "newlyFailing": [],
+      "policies": {
+        "naive": {
+          "mode": "partial",
+          "selected": 11,
+          "missed": [],
+          "testMs": 2048,
+          "wallMs": 3377
+        },
+        "safe": {
+          "mode": "partial",
+          "selected": 23,
+          "missed": [],
+          "testMs": 8200,
+          "wallMs": 3631
+        },
+        "jev": {
+          "mode": "partial",
+          "selected": 12,
+          "missed": [],
+          "testMs": 2337,
+          "wallMs": 2763
+        }
+      },
+      "caughtOnlyByJev": [],
+      "fullTestMs": 8324,
+      "fullWallMs": 6665
+    },
+    {
+      "sha": "17911f4b53dbc27a363ba49866cd1e4b2131e9bf",
+      "subject": "chore(auth): require 10-character passwords",
+      "changed": [
+        "src/auth.ts"
+      ],
+      "total": 66,
+      "newlyFailing": [
+        "tests/unit/auth.test.ts::auth > accepts a long password with a digit",
+        "tests/unit/auth.test.ts::auth > explains short passwords"
+      ],
+      "policies": {
+        "naive": {
+          "mode": "partial",
+          "selected": 12,
+          "missed": [],
+          "testMs": 5382,
+          "wallMs": 3607
+        },
+        "safe": {
+          "mode": "partial",
+          "selected": 24,
+          "missed": [],
+          "testMs": 13305,
+          "wallMs": 4532
+        },
+        "jev": {
+          "mode": "partial",
+          "selected": 12,
+          "missed": [],
+          "testMs": 5382,
+          "wallMs": 2777
+        }
+      },
+      "caughtOnlyByJev": [],
+      "fullTestMs": 13383,
+      "fullWallMs": 7809
+    },
+    {
+      "sha": "1276b240b75d9e2307a8a7629559295588863d17",
+      "subject": "fix(auth): back to 8 characters until the migration ships",
+      "changed": [
+        "src/auth.ts"
+      ],
+      "total": 66,
+      "newlyFailing": [],
+      "policies": {
+        "naive": {
+          "mode": "partial",
+          "selected": 12,
+          "missed": [],
+          "testMs": 3216,
+          "wallMs": 3838
+        },
+        "safe": {
+          "mode": "partial",
+          "selected": 24,
+          "missed": [],
+          "testMs": 8968,
+          "wallMs": 4927
+        },
+        "jev": {
+          "mode": "partial",
+          "selected": 12,
+          "missed": [],
+          "testMs": 3216,
+          "wallMs": 3747
+        }
+      },
+      "caughtOnlyByJev": [],
+      "fullTestMs": 9028,
+      "fullWallMs": 5952
+    },
+    {
+      "sha": "287c3574913575e3e3f553e29573374418ec4f61",
+      "subject": "feat(catalog): add Contract Testing Field Guide",
+      "changed": [
+        "src/catalog.json"
+      ],
+      "total": 66,
+      "newlyFailing": [
+        "tests/unit/catalog.test.ts::catalog > lists the twelve books in stock order",
+        "tests/unit/catalog.test.ts::catalog > groups books by category",
+        "tests/unit/search.test.ts::search > matches titles case-insensitively",
+        "tests/e2e/catalog.spec.ts::catalog > home page lists every book @smoke",
+        "tests/e2e/health.spec.ts::health endpoint reports the catalog size @smoke"
+      ],
+      "policies": {
+        "naive": {
+          "mode": "partial",
+          "selected": 26,
+          "missed": [],
+          "testMs": 6603,
+          "wallMs": 8318
+        },
+        "safe": {
+          "mode": "partial",
+          "selected": 40,
+          "missed": [],
+          "testMs": 13593,
+          "wallMs": 9203
+        },
+        "jev": {
+          "mode": "partial",
+          "selected": 28,
+          "missed": [],
+          "testMs": 7051,
+          "wallMs": 8226
+        }
+      },
+      "caughtOnlyByJev": [],
+      "fullTestMs": 13618,
+      "fullWallMs": 11085
+    },
+    {
+      "sha": "e6a241e1a141af1247aad0bd4b563314c4ef9385",
+      "subject": "test: update catalog expectations for 13 books",
+      "changed": [
+        "tests/e2e/catalog.spec.ts",
+        "tests/e2e/health.spec.ts",
+        "tests/unit/catalog.test.ts",
+        "tests/unit/search.test.ts"
+      ],
+      "total": 66,
+      "newlyFailing": [],
+      "policies": {
+        "naive": {
+          "mode": "partial",
+          "selected": 17,
+          "missed": [],
+          "testMs": 2901,
+          "wallMs": 3566
+        },
+        "safe": {
+          "mode": "partial",
+          "selected": 17,
+          "missed": [],
+          "testMs": 2901,
+          "wallMs": 3081
+        },
+        "jev": {
+          "mode": "partial",
+          "selected": 17,
+          "missed": [],
+          "testMs": 2901,
+          "wallMs": 3582
+        }
+      },
+      "caughtOnlyByJev": [],
+      "fullTestMs": 9132,
+      "fullWallMs": 6215
+    },
+    {
+      "sha": "39b4fcf5473546b98326413ce4e75dbdf0d9b921",
+      "subject": "refactor(server): move static routes into a lookup table",
+      "changed": [
+        "src/server.ts"
+      ],
+      "total": 66,
+      "newlyFailing": [],
+      "policies": {
+        "naive": {
+          "mode": "partial",
+          "selected": 4,
+          "missed": [],
+          "testMs": 1327,
+          "wallMs": 2464
+        },
+        "safe": {
+          "mode": "partial",
+          "selected": 18,
+          "missed": [],
+          "testMs": 7987,
+          "wallMs": 3982
+        },
+        "jev": {
+          "mode": "partial",
+          "selected": 17,
+          "missed": [],
+          "testMs": 7569,
+          "wallMs": 3055
+        }
+      },
+      "caughtOnlyByJev": [],
+      "fullTestMs": 8024,
+      "fullWallMs": 7094
+    },
+    {
+      "sha": "80063db7461cf323098ecd533fdc90d070c6b63e",
+      "subject": "feat(checkout): accept the shipping query parameter from the new link",
+      "changed": [
+        "src/server.ts"
+      ],
+      "total": 66,
+      "newlyFailing": [
+        "tests/e2e/checkout.spec.ts::checkout > switching to store pickup removes shipping @checkout"
+      ],
+      "policies": {
+        "naive": {
+          "mode": "partial",
+          "selected": 4,
+          "missed": [
+            "tests/e2e/checkout.spec.ts::checkout > switching to store pickup removes shipping @checkout"
+          ],
+          "testMs": 1172,
+          "wallMs": 2411
+        },
+        "safe": {
+          "mode": "partial",
+          "selected": 18,
+          "missed": [],
+          "testMs": 11439,
+          "wallMs": 8150
+        },
+        "jev": {
+          "mode": "partial",
+          "selected": 11,
+          "missed": [],
+          "testMs": 8822,
+          "wallMs": 7734
+        }
+      },
+      "caughtOnlyByJev": [
+        {
+          "id": "tests/e2e/checkout.spec.ts::checkout > switching to store pickup removes shipping @checkout",
+          "probability": 0.71
+        }
+      ],
+      "fullTestMs": 11481,
+      "fullWallMs": 10324
+    },
+    {
+      "sha": "db1606f59e3c06c124718d80eb928c54b418d6db",
+      "subject": "fix(checkout): still honour the method parameter used by the form",
+      "changed": [
+        "src/server.ts"
+      ],
+      "total": 66,
+      "newlyFailing": [],
+      "policies": {
+        "naive": {
+          "mode": "partial",
+          "selected": 4,
+          "missed": [],
+          "testMs": 2186,
+          "wallMs": 2652
+        },
+        "safe": {
+          "mode": "partial",
+          "selected": 18,
+          "missed": [],
+          "testMs": 11122,
+          "wallMs": 3921
+        },
+        "jev": {
+          "mode": "partial",
+          "selected": 11,
+          "missed": [],
+          "testMs": 6331,
+          "wallMs": 2797
+        }
+      },
+      "caughtOnlyByJev": [],
+      "fullTestMs": 11163,
+      "fullWallMs": 7031
+    },
+    {
+      "sha": "42bdebc15c0c3f58818a1161b0ce13cc5cdd57a7",
+      "subject": "feat(cart): show the author next to each cart line",
+      "changed": [
+        "src/views/cart.ts"
+      ],
+      "total": 66,
+      "newlyFailing": [],
+      "policies": {
+        "naive": {
+          "mode": "partial",
+          "selected": 4,
+          "missed": [],
+          "testMs": 1439,
+          "wallMs": 2520
+        },
+        "safe": {
+          "mode": "partial",
+          "selected": 18,
+          "missed": [],
+          "testMs": 7809,
+          "wallMs": 3270
+        },
+        "jev": {
+          "mode": "partial",
+          "selected": 12,
+          "missed": [],
+          "testMs": 5190,
+          "wallMs": 3465
+        }
+      },
+      "caughtOnlyByJev": [],
+      "fullTestMs": 7881,
+      "fullWallMs": 5760
+    },
+    {
+      "sha": "6813feceaf1651fc3d19f00fc3cf47ce28693a2f",
+      "subject": "refactor(inventory): simplify the availability guard",
+      "changed": [
+        "src/inventory.ts"
+      ],
+      "total": 66,
+      "newlyFailing": [
+        "tests/unit/cart.test.ts::cart > refuses to exceed stock"
+      ],
+      "policies": {
+        "naive": {
+          "mode": "partial",
+          "selected": 13,
+          "missed": [],
+          "testMs": 1426,
+          "wallMs": 3144
+        },
+        "safe": {
+          "mode": "partial",
+          "selected": 27,
+          "missed": [],
+          "testMs": 7888,
+          "wallMs": 3755
+        },
+        "jev": {
+          "mode": "partial",
+          "selected": 23,
+          "missed": [],
+          "testMs": 5900,
+          "wallMs": 3544
+        }
+      },
+      "caughtOnlyByJev": [],
+      "fullTestMs": 7928,
+      "fullWallMs": 5135
+    },
+    {
+      "sha": "29b72f56aa0db951eb602b9374531f55e85973e1",
+      "subject": "revert: availability guard rejected the last copy in stock",
+      "changed": [
+        "src/inventory.ts"
+      ],
+      "total": 66,
+      "newlyFailing": [],
+      "policies": {
+        "naive": {
+          "mode": "partial",
+          "selected": 13,
+          "missed": [],
+          "testMs": 2192,
+          "wallMs": 2515
+        },
+        "safe": {
+          "mode": "partial",
+          "selected": 27,
+          "missed": [],
+          "testMs": 10883,
+          "wallMs": 4266
+        },
+        "jev": {
+          "mode": "partial",
+          "selected": 23,
+          "missed": [],
+          "testMs": 7741,
+          "wallMs": 3664
+        }
+      },
+      "caughtOnlyByJev": [],
+      "fullTestMs": 10957,
+      "fullWallMs": 6123
+    },
+    {
+      "sha": "618a410050ec0d8f7d9251353671e459b4838d20",
+      "subject": "chore(e2e): lower the per-test timeout to 15s",
+      "changed": [
+        "playwright.config.ts"
+      ],
+      "total": 66,
+      "newlyFailing": [],
+      "policies": {
+        "naive": {
+          "mode": "full",
+          "selected": 66,
+          "missed": [],
+          "testMs": 7305,
+          "why": "playwright.config.ts affects every test (fullSuiteOn)",
+          "wallMs": 3967
+        },
+        "safe": {
+          "mode": "full",
+          "selected": 66,
+          "missed": [],
+          "testMs": 7305,
+          "why": "playwright.config.ts affects every test (fullSuiteOn)",
+          "wallMs": 3887
+        },
+        "jev": {
+          "mode": "full",
+          "selected": 66,
+          "missed": [],
+          "testMs": 7305,
+          "why": "playwright.config.ts affects every test (fullSuiteOn)",
+          "wallMs": 3949
+        }
+      },
+      "caughtOnlyByJev": [],
+      "fullTestMs": 7305,
+      "fullWallMs": 5216
+    }
+  ],
+  "jev": {
+    "calls": 18,
+    "questions": 231,
+    "inputTokens": 68852
+  }
+}

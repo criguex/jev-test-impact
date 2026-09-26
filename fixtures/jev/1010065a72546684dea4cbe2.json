@@ -1,0 +1,113 @@
+{
+  "request": {
+    "model": "jev-latest",
+    "state": {
+      "file": "src/shipping.ts",
+      "status": "modified",
+      "hunks": [
+        {
+          "location": "@@ -2,13 +2,18 @@ import type { Cents } from './money.js';",
+          "removed": [
+            "export function shippingFor(itemCount: number, method: ShippingMethod): Cents {"
+          ],
+          "added": [
+            "export const FREE_STANDARD_FROM: Cents = 10000;",
+            "",
+            "export function shippingFor(itemCount: number, method: ShippingMethod, subtotal: Cents = 0): Cents {",
+            "  if (method === 'standard' && subtotal >= FREE_STANDARD_FROM) {",
+            "    return 0;",
+            "  }"
+          ]
+        }
+      ]
+    },
+    "questions": {
+      "t0": {
+        "type": "noul",
+        "instructions": {
+          "test": {
+            "file": "tests/e2e/auth.spec.ts",
+            "title": "auth > a wrong password shows an error @auth",
+            "steps": "async ({ page }) => { await logIn(page, 'not-it'); await expect(page.getByTestId('login-error')).toHaveText('Email or password is incorrect'); } async function logIn(page: Page, password: string): Promise<void> { await page.goto('/'); await page.getByTestId('login-link').click(); await page.getByLabel('Email').fill('reader@example.com'); await page.getByLabel('Password').fill(password); await page.getByTestId('login-submit').click(); }"
+          },
+          "question": "Could the code change described in the state alter what `test` does or observes, so that its result (pass or fail) might be different?"
+        },
+        "criteria": {
+          "true": "The change touches code, markup, data, styles, routes or behavior that `test` exercises directly or indirectly, including shared pages, components, helpers, prices or text it asserts on.",
+          "false": "Nothing that `test` visits, clicks, reads or asserts on can be influenced by the change."
+        }
+      },
+      "t1": {
+        "type": "noul",
+        "instructions": {
+          "test": {
+            "file": "tests/e2e/auth.spec.ts",
+            "title": "auth > logging out returns to anonymous browsing @auth",
+            "steps": "async ({ page }) => { await logIn(page, 'open-sesame1'); await page.getByTestId('logout').click(); await expect(page.getByTestId('login-link')).toBeVisible(); } async function logIn(page: Page, password: string): Promise<void> { await page.goto('/'); await page.getByTestId('login-link').click(); await page.getByLabel('Email').fill('reader@example.com'); await page.getByLabel('Password').fill(password); await page.getByTestId('login-submit').click(); }"
+          },
+          "question": "Could the code change described in the state alter what `test` does or observes, so that its result (pass or fail) might be different?"
+        },
+        "criteria": {
+          "true": "The change touches code, markup, data, styles, routes or behavior that `test` exercises directly or indirectly, including shared pages, components, helpers, prices or text it asserts on.",
+          "false": "Nothing that `test` visits, clicks, reads or asserts on can be influenced by the change."
+        }
+      },
+      "t2": {
+        "type": "noul",
+        "instructions": {
+          "test": {
+            "file": "tests/e2e/catalog.spec.ts",
+            "title": "catalog > search narrows results by title @search",
+            "steps": "async ({ page }) => { await page.goto('/'); await page.getByRole('searchbox', { name: 'Search books' }).or(page.getByLabel('Search books')).fill('pipeline'); await page.keyboard.press('Enter'); await expect(page.getByTestId('book-card')).toHaveCount(1); await expect(page.getByTestId('book-card')).toContainText('The Calm Pipeline'); }"
+          },
+          "question": "Could the code change described in the state alter what `test` does or observes, so that its result (pass or fail) might be different?"
+        },
+        "criteria": {
+          "true": "The change touches code, markup, data, styles, routes or behavior that `test` exercises directly or indirectly, including shared pages, components, helpers, prices or text it asserts on.",
+          "false": "Nothing that `test` visits, clicks, reads or asserts on can be influenced by the change."
+        }
+      },
+      "t3": {
+        "type": "noul",
+        "instructions": {
+          "test": {
+            "file": "tests/e2e/catalog.spec.ts",
+            "title": "catalog > search without matches shows the empty state @search",
+            "steps": "async ({ page }) => { await page.goto('/search?q=cooking'); await expect(page.getByTestId('empty-results')).toBeVisible(); }"
+          },
+          "question": "Could the code change described in the state alter what `test` does or observes, so that its result (pass or fail) might be different?"
+        },
+        "criteria": {
+          "true": "The change touches code, markup, data, styles, routes or behavior that `test` exercises directly or indirectly, including shared pages, components, helpers, prices or text it asserts on.",
+          "false": "Nothing that `test` visits, clicks, reads or asserts on can be influenced by the change."
+        }
+      },
+      "t4": {
+        "type": "noul",
+        "instructions": {
+          "test": {
+            "file": "tests/e2e/catalog.spec.ts",
+            "title": "catalog > sold out book cannot be added",
+            "steps": "async ({ page }) => { await page.goto('/book/b06'); await expect(page.getByTestId('sold-out')).toBeVisible(); await expect(page.getByTestId('add-to-cart')).toHaveCount(0); }"
+          },
+          "question": "Could the code change described in the state alter what `test` does or observes, so that its result (pass or fail) might be different?"
+        },
+        "criteria": {
+          "true": "The change touches code, markup, data, styles, routes or behavior that `test` exercises directly or indirectly, including shared pages, components, helpers, prices or text it asserts on.",
+          "false": "Nothing that `test` visits, clicks, reads or asserts on can be influenced by the change."
+        }
+      }
+    }
+  },
+  "response": {
+    "model": "jev-latest via vercel-gateway",
+    "probabilities": {
+      "t0": 0.06,
+      "t1": 0.07,
+      "t2": 0.23,
+      "t3": 0.31,
+      "t4": 0.26
+    },
+    "inputTokens": 1654
+  }
+}

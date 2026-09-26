@@ -1,0 +1,220 @@
+{
+  "request": {
+    "model": "jev-latest",
+    "state": {
+      "file": "src/auth.ts",
+      "status": "modified",
+      "hunks": [
+        {
+          "location": "@@ -9,7 +9,7 @@ export interface User {",
+          "removed": [
+            "export const MIN_PASSWORD_LENGTH = 10;"
+          ],
+          "added": [
+            "export const MIN_PASSWORD_LENGTH = 8;"
+          ]
+        }
+      ]
+    },
+    "questions": {
+      "t0": {
+        "type": "noul",
+        "instructions": {
+          "test": {
+            "file": "tests/e2e/cart.spec.ts",
+            "title": "cart > adding a book updates the header counter @cart",
+            "steps": "async ({ page }) => { await addBook(page, 'b01', 2); await expect(page.getByTestId('cart-count')).toHaveText('2'); await expect(page.getByTestId('cart-line')).toHaveCount(1); } async function addBook(page: Page, id: string, quantity = 1): Promise<void> { await page.goto(`/book/${id}`); await page.getByLabel('Quantity').fill(String(quantity)); await page.getByTestId('add-to-cart').click(); }"
+          },
+          "question": "Could the code change described in the state alter what `test` does or observes, so that its result (pass or fail) might be different?"
+        },
+        "criteria": {
+          "true": "The change touches code, markup, data, styles, routes or behavior that `test` exercises directly or indirectly, including shared pages, components, helpers, prices or text it asserts on.",
+          "false": "Nothing that `test` visits, clicks, reads or asserts on can be influenced by the change."
+        }
+      },
+      "t1": {
+        "type": "noul",
+        "instructions": {
+          "test": {
+            "file": "tests/e2e/cart.spec.ts",
+            "title": "cart > changing quantity recalculates the subtotal @cart",
+            "steps": "async ({ page }) => { await addBook(page, 'b05'); await page.getByLabel('Quantity for The Calm Pipeline').fill('3'); await page.getByRole('button', { name: 'Update' }).click(); await expect(page.getByTestId('subtotal')).toHaveText('$75.00'); } async function addBook(page: Page, id: string, quantity = 1): Promise<void> { await page.goto(`/book/${id}`); await page.getByLabel('Quantity').fill(String(quantity)); await page.getByTestId('add-to-cart').click(); }"
+          },
+          "question": "Could the code change described in the state alter what `test` does or observes, so that its result (pass or fail) might be different?"
+        },
+        "criteria": {
+          "true": "The change touches code, markup, data, styles, routes or behavior that `test` exercises directly or indirectly, including shared pages, components, helpers, prices or text it asserts on.",
+          "false": "Nothing that `test` visits, clicks, reads or asserts on can be influenced by the change."
+        }
+      },
+      "t2": {
+        "type": "noul",
+        "instructions": {
+          "test": {
+            "file": "tests/e2e/cart.spec.ts",
+            "title": "cart > removing the last line empties the cart @cart",
+            "steps": "async ({ page }) => { await addBook(page, 'b02'); await page.getByTestId('remove').click(); await expect(page.getByTestId('empty-cart')).toBeVisible(); await expect(page.getByTestId('cart-count')).toHaveText('0'); } async function addBook(page: Page, id: string, quantity = 1): Promise<void> { await page.goto(`/book/${id}`); await page.getByLabel('Quantity').fill(String(quantity)); await page.getByTestId('add-to-cart').click(); }"
+          },
+          "question": "Could the code change described in the state alter what `test` does or observes, so that its result (pass or fail) might be different?"
+        },
+        "criteria": {
+          "true": "The change touches code, markup, data, styles, routes or behavior that `test` exercises directly or indirectly, including shared pages, components, helpers, prices or text it asserts on.",
+          "false": "Nothing that `test` visits, clicks, reads or asserts on can be influenced by the change."
+        }
+      },
+      "t3": {
+        "type": "noul",
+        "instructions": {
+          "test": {
+            "file": "tests/e2e/cart.spec.ts",
+            "title": "cart > a valid discount code lowers the total @cart",
+            "steps": "async ({ page }) => { await addBook(page, 'b03'); await page.getByLabel('Discount code').fill('welcome10'); await page.getByTestId('apply-discount').click(); await expect(page.getByTestId('discount')).toHaveText('-$4.50'); await expect(page.getByTestId('total')).toHaveText('$48.34'); } async function addBook(page: Page, id: string, quantity = 1): Promise<void> { await page.goto(`/book/${id}`); await page.getByLabel('Quantity').fill(String(quantity)); await page.getByTestId('add-to-cart').click(); }"
+          },
+          "question": "Could the code change described in the state alter what `test` does or observes, so that its result (pass or fail) might be different?"
+        },
+        "criteria": {
+          "true": "The change touches code, markup, data, styles, routes or behavior that `test` exercises directly or indirectly, including shared pages, components, helpers, prices or text it asserts on.",
+          "false": "Nothing that `test` visits, clicks, reads or asserts on can be influenced by the change."
+        }
+      },
+      "t4": {
+        "type": "noul",
+        "instructions": {
+          "test": {
+            "file": "tests/e2e/cart.spec.ts",
+            "title": "cart > an invalid discount code is rejected @cart",
+            "steps": "async ({ page }) => { await addBook(page, 'b03'); await page.getByLabel('Discount code').fill('FREEBOOKS'); await page.getByTestId('apply-discount').click(); await expect(page.getByTestId('cart-message')).toHaveText('Code FREEBOOKS is not valid'); } async function addBook(page: Page, id: string, quantity = 1): Promise<void> { await page.goto(`/book/${id}`); await page.getByLabel('Quantity').fill(String(quantity)); await page.getByTestId('add-to-cart').click(); }"
+          },
+          "question": "Could the code change described in the state alter what `test` does or observes, so that its result (pass or fail) might be different?"
+        },
+        "criteria": {
+          "true": "The change touches code, markup, data, styles, routes or behavior that `test` exercises directly or indirectly, including shared pages, components, helpers, prices or text it asserts on.",
+          "false": "Nothing that `test` visits, clicks, reads or asserts on can be influenced by the change."
+        }
+      },
+      "t5": {
+        "type": "noul",
+        "instructions": {
+          "test": {
+            "file": "tests/e2e/cart.spec.ts",
+            "title": "cart > asking for more than the stock shows an error @cart",
+            "steps": "async ({ page }) => { await addBook(page, 'b10', 2); await expect(page.getByTestId('cart-message')).toHaveText('Not enough stock'); } async function addBook(page: Page, id: string, quantity = 1): Promise<void> { await page.goto(`/book/${id}`); await page.getByLabel('Quantity').fill(String(quantity)); await page.getByTestId('add-to-cart').click(); }"
+          },
+          "question": "Could the code change described in the state alter what `test` does or observes, so that its result (pass or fail) might be different?"
+        },
+        "criteria": {
+          "true": "The change touches code, markup, data, styles, routes or behavior that `test` exercises directly or indirectly, including shared pages, components, helpers, prices or text it asserts on.",
+          "false": "Nothing that `test` visits, clicks, reads or asserts on can be influenced by the change."
+        }
+      },
+      "t6": {
+        "type": "noul",
+        "instructions": {
+          "test": {
+            "file": "tests/e2e/catalog.spec.ts",
+            "title": "catalog > search narrows results by title @search",
+            "steps": "async ({ page }) => { await page.goto('/'); await page.getByRole('searchbox', { name: 'Search books' }).or(page.getByLabel('Search books')).fill('pipeline'); await page.keyboard.press('Enter'); await expect(page.getByTestId('book-card')).toHaveCount(1); await expect(page.getByTestId('book-card')).toContainText('The Calm Pipeline'); }"
+          },
+          "question": "Could the code change described in the state alter what `test` does or observes, so that its result (pass or fail) might be different?"
+        },
+        "criteria": {
+          "true": "The change touches code, markup, data, styles, routes or behavior that `test` exercises directly or indirectly, including shared pages, components, helpers, prices or text it asserts on.",
+          "false": "Nothing that `test` visits, clicks, reads or asserts on can be influenced by the change."
+        }
+      },
+      "t7": {
+        "type": "noul",
+        "instructions": {
+          "test": {
+            "file": "tests/e2e/catalog.spec.ts",
+            "title": "catalog > search without matches shows the empty state @search",
+            "steps": "async ({ page }) => { await page.goto('/search?q=cooking'); await expect(page.getByTestId('empty-results')).toBeVisible(); }"
+          },
+          "question": "Could the code change described in the state alter what `test` does or observes, so that its result (pass or fail) might be different?"
+        },
+        "criteria": {
+          "true": "The change touches code, markup, data, styles, routes or behavior that `test` exercises directly or indirectly, including shared pages, components, helpers, prices or text it asserts on.",
+          "false": "Nothing that `test` visits, clicks, reads or asserts on can be influenced by the change."
+        }
+      },
+      "t8": {
+        "type": "noul",
+        "instructions": {
+          "test": {
+            "file": "tests/e2e/catalog.spec.ts",
+            "title": "catalog > book page shows price and add button",
+            "steps": "async ({ page }) => { await page.goto('/'); await page.getByRole('link', { name: 'TypeScript in Depth' }).click(); await expect(page.getByTestId('price')).toHaveText('$45.00'); await expect(page.getByTestId('add-to-cart')).toBeEnabled(); }"
+          },
+          "question": "Could the code change described in the state alter what `test` does or observes, so that its result (pass or fail) might be different?"
+        },
+        "criteria": {
+          "true": "The change touches code, markup, data, styles, routes or behavior that `test` exercises directly or indirectly, including shared pages, components, helpers, prices or text it asserts on.",
+          "false": "Nothing that `test` visits, clicks, reads or asserts on can be influenced by the change."
+        }
+      },
+      "t9": {
+        "type": "noul",
+        "instructions": {
+          "test": {
+            "file": "tests/e2e/catalog.spec.ts",
+            "title": "catalog > sold out book cannot be added",
+            "steps": "async ({ page }) => { await page.goto('/book/b06'); await expect(page.getByTestId('sold-out')).toBeVisible(); await expect(page.getByTestId('add-to-cart')).toHaveCount(0); }"
+          },
+          "question": "Could the code change described in the state alter what `test` does or observes, so that its result (pass or fail) might be different?"
+        },
+        "criteria": {
+          "true": "The change touches code, markup, data, styles, routes or behavior that `test` exercises directly or indirectly, including shared pages, components, helpers, prices or text it asserts on.",
+          "false": "Nothing that `test` visits, clicks, reads or asserts on can be influenced by the change."
+        }
+      },
+      "t10": {
+        "type": "noul",
+        "instructions": {
+          "test": {
+            "file": "tests/e2e/checkout.spec.ts",
+            "title": "checkout > shows standard shipping totals by default @checkout",
+            "steps": "async ({ page }) => { await cartWith(page, 'b01', 'b02'); await expect(page.getByTestId('shipping')).toHaveText('$6.00'); await expect(page.getByTestId('total')).toHaveText('$70.20'); } async function cartWith(page: Page, ...ids: string[]): Promise<void> { for (const id of ids) { await page.goto(`/book/${id}`); await page.getByTestId('add-to-cart').click(); } await page.getByTestId('go-checkout').click(); }"
+          },
+          "question": "Could the code change described in the state alter what `test` does or observes, so that its result (pass or fail) might be different?"
+        },
+        "criteria": {
+          "true": "The change touches code, markup, data, styles, routes or behavior that `test` exercises directly or indirectly, including shared pages, components, helpers, prices or text it asserts on.",
+          "false": "Nothing that `test` visits, clicks, reads or asserts on can be influenced by the change."
+        }
+      },
+      "t11": {
+        "type": "noul",
+        "instructions": {
+          "test": {
+            "file": "tests/e2e/checkout.spec.ts",
+            "title": "checkout > switching to store pickup removes shipping @checkout",
+            "steps": "async ({ page }) => { await cartWith(page, 'b01'); await page.getByLabel('Store pickup').check(); await page.getByTestId('update-shipping').click(); await expect(page.getByTestId('shipping')).toHaveText('$0.00'); } async function cartWith(page: Page, ...ids: string[]): Promise<void> { for (const id of ids) { await page.goto(`/book/${id}`); await page.getByTestId('add-to-cart').click(); } await page.getByTestId('go-checkout').click(); }"
+          },
+          "question": "Could the code change described in the state alter what `test` does or observes, so that its result (pass or fail) might be different?"
+        },
+        "criteria": {
+          "true": "The change touches code, markup, data, styles, routes or behavior that `test` exercises directly or indirectly, including shared pages, components, helpers, prices or text it asserts on.",
+          "false": "Nothing that `test` visits, clicks, reads or asserts on can be influenced by the change."
+        }
+      }
+    }
+  },
+  "response": {
+    "model": "jev-latest via vercel-gateway",
+    "probabilities": {
+      "t0": 0.05,
+      "t1": 0.05,
+      "t2": 0.05,
+      "t3": 0.09,
+      "t4": 0.05,
+      "t5": 0.05,
+      "t6": 0.06,
+      "t7": 0.05,
+      "t8": 0.06,
+      "t9": 0.06,
+      "t10": 0.05,
+      "t11": 0.05
+    },
+    "inputTokens": 3536
+  }
+}

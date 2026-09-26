@@ -1,0 +1,25 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Demo Dev <dev@example.com>
+Date: Fri, 4 Sep 2026 09:00:00 +0000
+Subject: [PATCH 06/20] style: warmer accent color and roomier book cards
+
+
+diff --git a/public/styles.css b/public/styles.css
+index b90d863..4f78c2f 100644
+--- a/public/styles.css
++++ b/public/styles.css
+@@ -1,4 +1,4 @@
+-:root { --accent: #b4532a; --ink: #1d1d1f; --paper: #fbf7f0; }
++:root { --accent: #c2410c; --ink: #1d1d1f; --paper: #fbf7f0; }
+ * { box-sizing: border-box; }
+ body { margin: 0; font-family: system-ui, sans-serif; color: var(--ink); background: var(--paper); }
+ header { display: flex; gap: 1rem; align-items: center; padding: 1rem 2rem; border-bottom: 1px solid #e5dccd; }
+@@ -6,7 +6,7 @@ header nav { margin-left: auto; display: flex; gap: 1rem; align-items: center; }
+ .brand { font-weight: 700; color: var(--accent); text-decoration: none; }
+ main { padding: 1rem 2rem; max-width: 960px; }
+ .books { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; }
+-.book { display: flex; flex-direction: column; padding: 1rem; background: #fff; border-radius: 8px; }
++.book { display: flex; flex-direction: column; gap: 0.25rem; padding: 1.25rem; background: #fff; border-radius: 8px; }
+ .price { font-weight: 600; }
+ .totals { display: grid; grid-template-columns: auto auto; gap: 0.25rem 1rem; max-width: 320px; }
+ button { background: var(--accent); color: #fff; border: 0; padding: 0.4rem 0.8rem; border-radius: 6px; cursor: pointer; }

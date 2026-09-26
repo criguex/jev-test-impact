@@ -1,0 +1,32 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Demo Dev <dev@example.com>
+Date: Sat, 5 Sep 2026 09:00:00 +0000
+Subject: [PATCH 09/20] feat(search): match author names too
+
+
+diff --git a/src/search.ts b/src/search.ts
+index d1fc6f4..fa0e0ae 100644
+--- a/src/search.ts
++++ b/src/search.ts
+@@ -9,5 +9,5 @@ export function searchBooks(query: string): Book[] {
+   if (needle.length < 2) {
+     return [];
+   }
+-  return listBooks().filter((book) => normalize(book.title).includes(needle));
++  return listBooks().filter((book) => normalize(book.title).includes(needle) || normalize(book.author).includes(needle));
+ }
+diff --git a/tests/unit/search.test.ts b/tests/unit/search.test.ts
+index ca4928a..4dfbfc1 100644
+--- a/tests/unit/search.test.ts
++++ b/tests/unit/search.test.ts
+@@ -10,6 +10,10 @@ describe('search', () => {
+     expect(searchBooks('pipéline').map((book) => book.id)).toEqual(['b05']);
+   });
+ 
++  it('matches author names', () => {
++    expect(searchBooks('tanaka').map((book) => book.id)).toEqual(['b06', 'b10']);
++  });
++
+   it('returns nothing for one-letter queries', () => {
+     expect(searchBooks('a')).toEqual([]);
+   });

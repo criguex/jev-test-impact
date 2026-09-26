@@ -1,0 +1,19 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Demo Dev <dev@example.com>
+Date: Thu, 3 Sep 2026 15:00:00 +0000
+Subject: [PATCH 05/20] revert: WELCOME10 back to 10% until marketing confirms
+
+
+diff --git a/src/pricing.ts b/src/pricing.ts
+index 6ebec73..c2b0288 100644
+--- a/src/pricing.ts
++++ b/src/pricing.ts
+@@ -8,7 +8,7 @@ export interface Discount {
+ type Rule = (subtotal: Cents) => Cents;
+ 
+ const rules: Record<string, Rule> = {
+-  WELCOME10: (subtotal) => percentOf(subtotal, 15),
++  WELCOME10: (subtotal) => percentOf(subtotal, 10),
+   BULK5: (subtotal) => (subtotal >= 5000 ? 500 : 0),
+   HALFTEST: (subtotal) => Math.min(percentOf(subtotal, 50), 2000),
+ };

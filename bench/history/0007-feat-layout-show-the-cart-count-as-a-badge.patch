@@ -1,0 +1,19 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Demo Dev <dev@example.com>
+Date: Fri, 4 Sep 2026 12:00:00 +0000
+Subject: [PATCH 07/20] feat(layout): show the cart count as a badge
+
+
+diff --git a/src/views/layout.ts b/src/views/layout.ts
+index bba9850..4132307 100644
+--- a/src/views/layout.ts
++++ b/src/views/layout.ts
+@@ -23,7 +23,7 @@ export function layout(options: LayoutOptions, body: string): string {
+     <a href="/" class="brand">Paper Lantern Books</a>
+     <form action="/search" role="search"><input name="q" aria-label="Search books" placeholder="Search"></form>
+     <nav>
+-      <a href="/cart">Cart (<span data-testid="cart-count">${options.cartCount}</span>)</a>
++      <a href="/cart" class="cart-link">Cart <span class="badge" data-testid="cart-badge">${options.cartCount}</span></a>
+       ${account}
+     </nav>
+   </header>

@@ -1,0 +1,19 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Demo Dev <dev@example.com>
+Date: Mon, 7 Sep 2026 15:00:00 +0000
+Subject: [PATCH 17/20] feat(cart): show the author next to each cart line
+
+
+diff --git a/src/views/cart.ts b/src/views/cart.ts
+index c3a25e2..8cab2d1 100644
+--- a/src/views/cart.ts
++++ b/src/views/cart.ts
+@@ -5,7 +5,7 @@ import { escapeHtml } from './html.js';
+ function line(summaryLine: CartSummary['lines'][number]): string {
+   const { book, quantity } = summaryLine;
+   return `<tr data-testid="cart-line">
+-  <td>${escapeHtml(book.title)}</td>
++  <td>${escapeHtml(book.title)} <small class="author">${escapeHtml(book.author)}</small></td>
+   <td>
+     <form method="post" action="/cart/quantity">
+       <input type="hidden" name="bookId" value="${book.id}">

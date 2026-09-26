@@ -1,0 +1,15 @@
+{
+  "suites": [
+    { "name": "unit", "runner": "vitest", "include": ["tests/unit/**/*.test.ts"], "strategy": "import-graph" },
+    { "name": "e2e", "runner": "playwright", "include": ["tests/e2e/**/*.spec.ts"], "strategy": "black-box" }
+  ],
+  "alwaysRun": ["@smoke"],
+  "fullSuiteOn": ["package.json", "package-lock.json", "tsconfig.json", "vitest.config.ts", "playwright.config.ts", "impact.config.json"],
+  "ignore": ["**/*.md", "docs/**"],
+  "owners": [
+    { "files": ["src/auth.ts", "src/views/login.ts"], "tags": ["@auth"] },
+    { "files": ["src/pricing.ts", "src/tax.ts", "src/shipping.ts", "src/views/checkout.ts"], "tags": ["@checkout"] },
+    { "files": ["src/search.ts"], "tags": ["@search"] }
+  ],
+  "jev": { "threshold": 0.2, "maxQuestionsPerCall": 40 }
+}

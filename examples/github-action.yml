@@ -1,0 +1,35 @@
+# Copy to .github/workflows/test-impact.yml in your repository.
+# Needs an impact.config.json at the project root (see demo/impact.config.json)
+# and, for live decisions, an AI_GATEWAY_API_KEY or TYPESAFE_API_KEY secret.
+# Without a key and without recorded answers the tool runs every test.
+name: Test impact
+
+on:
+  pull_request:
+
+jobs:
+  affected-tests:
+    runs-on: ubuntu-latest
+    env:
+      AI_GATEWAY_API_KEY: ${{ secrets.AI_GATEWAY_API_KEY }}
+      JTI: npx --yes github:criguex/jev-test-impact
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Pick the affected tests
+        id: impact
+        run: $JTI select --base origin/${{ github.base_ref }} --format github
+      - name: Unit tests
+        if: steps.impact.outputs.unit != 'skip'
+        run: $JTI run --suite unit --base origin/${{ github.base_ref }} -- npx vitest run
+      - run: npx playwright install --with-deps chromium
+        if: steps.impact.outputs.e2e != 'skip'
+      - name: End-to-end tests
+        if: steps.impact.outputs.e2e != 'skip'
+        run: $JTI run --suite e2e --base origin/${{ github.base_ref }} -- npx playwright test

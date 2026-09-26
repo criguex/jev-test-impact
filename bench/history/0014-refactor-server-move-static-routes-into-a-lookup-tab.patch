@@ -1,0 +1,44 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Demo Dev <dev@example.com>
+Date: Sun, 6 Sep 2026 15:00:00 +0000
+Subject: [PATCH 14/20] refactor(server): move static routes into a lookup
+ table
+
+
+diff --git a/src/server.ts b/src/server.ts
+index 86accbe..5fd4a51 100644
+--- a/src/server.ts
++++ b/src/server.ts
+@@ -61,18 +61,24 @@ function shippingMethod(value: string | null): ShippingMethod {
+   return value && isShippingMethod(value) ? value : 'standard';
+ }
+ 
+-async function route(ctx: Context): Promise<void> {
+-  const { req, url } = ctx;
+-  const key = `${req.method} ${url.pathname}`;
+-
+-  if (key === 'GET /health') {
++const staticRoutes: Record<string, (ctx: Context) => Promise<void>> = {
++  'GET /health': async (ctx) => {
+     ctx.res.writeHead(200, { 'content-type': 'application/json' });
+     ctx.res.end(JSON.stringify({ status: 'ok', books: listBooks().length }));
+-    return;
+-  }
+-  if (key === 'GET /styles.css') {
++  },
++  'GET /styles.css': async (ctx) => {
+     ctx.res.writeHead(200, { 'content-type': 'text/css' });
+     ctx.res.end(await readFile(stylesheet));
++  },
++};
++
++async function route(ctx: Context): Promise<void> {
++  const { req, url } = ctx;
++  const key = `${req.method} ${url.pathname}`;
++
++  const fixed = staticRoutes[key];
++  if (fixed) {
++    await fixed(ctx);
+     return;
+   }
+   if (key === 'GET /') {

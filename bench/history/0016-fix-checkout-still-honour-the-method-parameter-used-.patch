@@ -1,0 +1,20 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Demo Dev <dev@example.com>
+Date: Mon, 7 Sep 2026 12:00:00 +0000
+Subject: [PATCH 16/20] fix(checkout): still honour the method parameter used
+ by the form
+
+
+diff --git a/src/server.ts b/src/server.ts
+index 86d7cbf..f61a967 100644
+--- a/src/server.ts
++++ b/src/server.ts
+@@ -141,7 +141,7 @@ async function route(ctx: Context): Promise<void> {
+     return;
+   }
+   if (key === 'GET /checkout') {
+-    const method = shippingMethod(url.searchParams.get('shipping'));
++    const method = shippingMethod(url.searchParams.get('shipping') ?? url.searchParams.get('method'));
+     page(ctx, 'Checkout', checkoutPage(ctx.cart.summary('US', method), method));
+     return;
+   }

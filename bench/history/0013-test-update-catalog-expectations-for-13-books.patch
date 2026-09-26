@@ -1,0 +1,67 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Demo Dev <dev@example.com>
+Date: Sun, 6 Sep 2026 12:00:00 +0000
+Subject: [PATCH 13/20] test: update catalog expectations for 13 books
+
+
+diff --git a/tests/e2e/catalog.spec.ts b/tests/e2e/catalog.spec.ts
+index 912918d..5119c15 100644
+--- a/tests/e2e/catalog.spec.ts
++++ b/tests/e2e/catalog.spec.ts
+@@ -4,7 +4,7 @@ test.describe('catalog', () => {
+   test('home page lists every book @smoke', async ({ page }) => {
+     await page.goto('/');
+     await expect(page.getByRole('heading', { name: 'Catalog' })).toBeVisible();
+-    await expect(page.getByTestId('book-card')).toHaveCount(12);
++    await expect(page.getByTestId('book-card')).toHaveCount(13);
+   });
+ 
+   test('search narrows results by title @search', async ({ page }) => {
+diff --git a/tests/e2e/health.spec.ts b/tests/e2e/health.spec.ts
+index 1846527..5808103 100644
+--- a/tests/e2e/health.spec.ts
++++ b/tests/e2e/health.spec.ts
+@@ -3,5 +3,5 @@ import { expect, test } from '@playwright/test';
+ test('health endpoint reports the catalog size @smoke', async ({ request }) => {
+   const response = await request.get('/health');
+   expect(response.ok()).toBe(true);
+-  expect(await response.json()).toEqual({ status: 'ok', books: 12 });
++  expect(await response.json()).toEqual({ status: 'ok', books: 13 });
+ });
+diff --git a/tests/unit/catalog.test.ts b/tests/unit/catalog.test.ts
+index 167a3d3..01d8e95 100644
+--- a/tests/unit/catalog.test.ts
++++ b/tests/unit/catalog.test.ts
+@@ -2,8 +2,8 @@ import { describe, expect, it } from 'vitest';
+ import { byCategory, categories, findBook, listBooks } from '../../src/catalog.js';
+ 
+ describe('catalog', () => {
+-  it('lists the twelve books in stock order', () => {
+-    expect(listBooks()).toHaveLength(12);
++  it('lists the thirteen books in stock order', () => {
++    expect(listBooks()).toHaveLength(13);
+   });
+ 
+   it('finds a book by id', () => {
+@@ -15,7 +15,7 @@ describe('catalog', () => {
+   });
+ 
+   it('groups books by category', () => {
+-    expect(byCategory('testing').map((book) => book.id)).toEqual(['b01', 'b02', 'b09']);
++    expect(byCategory('testing').map((book) => book.id)).toEqual(['b01', 'b02', 'b09', 'b13']);
+     expect(categories()).toEqual(['architecture', 'design', 'devops', 'programming', 'testing']);
+   });
+ });
+diff --git a/tests/unit/search.test.ts b/tests/unit/search.test.ts
+index 4dfbfc1..6b0c581 100644
+--- a/tests/unit/search.test.ts
++++ b/tests/unit/search.test.ts
+@@ -3,7 +3,7 @@ import { searchBooks } from '../../src/search.js';
+ 
+ describe('search', () => {
+   it('matches titles case-insensitively', () => {
+-    expect(searchBooks('TESTING').map((book) => book.id)).toEqual(['b09']);
++    expect(searchBooks('TESTING').map((book) => book.id)).toEqual(['b09', 'b13']);
+   });
+ 
+   it('ignores accents in the query', () => {

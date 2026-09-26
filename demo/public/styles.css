@@ -1,0 +1,12 @@
+:root { --accent: #b4532a; --ink: #1d1d1f; --paper: #fbf7f0; }
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, sans-serif; color: var(--ink); background: var(--paper); }
+header { display: flex; gap: 1rem; align-items: center; padding: 1rem 2rem; border-bottom: 1px solid #e5dccd; }
+header nav { margin-left: auto; display: flex; gap: 1rem; align-items: center; }
+.brand { font-weight: 700; color: var(--accent); text-decoration: none; }
+main { padding: 1rem 2rem; max-width: 960px; }
+.books { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; }
+.book { display: flex; flex-direction: column; padding: 1rem; background: #fff; border-radius: 8px; }
+.price { font-weight: 600; }
+.totals { display: grid; grid-template-columns: auto auto; gap: 0.25rem 1rem; max-width: 320px; }
+button { background: var(--accent); color: #fff; border: 0; padding: 0.4rem 0.8rem; border-radius: 6px; cursor: pointer; }

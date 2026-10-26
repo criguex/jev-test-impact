@@ -1,5 +1,9 @@
 # jev-test-impact
 
+[Leer en español](README.es.md)
+
+![jev-test-impact: run only the tests your change touched; rules first, Jev for the ambiguous rest, the full suite on any doubt](docs/assets/banner.svg)
+
 **Run only the tests your change touched, without betting your release on a guess.**
 
 [![CI](https://github.com/criguex/jev-test-impact/actions/workflows/ci.yml/badge.svg)](https://github.com/criguex/jev-test-impact/actions/workflows/ci.yml)
@@ -11,7 +15,7 @@ Most pull requests touch a few files, yet CI runs every test. `jev-test-impact` 
 
 If Jev is slow, down, rate-limited or returns something odd, **every test runs**. Uncertainty never causes a test to be skipped.
 
-> Spanish summary for non-technical readers: [Explicado simple](#explicado-simple-es).
+> Spanish version, with a plain-language explanation for non-technical readers: [README.es.md](README.es.md).
 
 ## Measured results
 
@@ -33,23 +37,11 @@ These numbers come from one small demo app with 6 seeded regressions. They show 
 
 ## How it works
 
-```mermaid
-flowchart TD
-    A[git diff base...head] --> B{Touches package.json,<br/>lockfile, runner config?}
-    B -- yes --> FULL[Run full suite]
-    B -- no --> C[Drop ignored files<br/>docs, *.md]
-    C --> D[Deterministic layer]
-    D --> D1[Changed test file → its tests]
-    D --> D2[Import graph → unit tests<br/>that import the file]
-    D --> D3[Ownership map → tagged tests]
-    D --> D4["@smoke → always"]
-    D1 & D2 & D3 & D4 --> E{Black-box tests<br/>still undecided?}
-    E -- no --> SEL[Selected tests]
-    E -- yes --> J["Jev: one noul per (diff, test)<br/>p ≥ threshold → select"]
-    J -- answers --> SEL
-    J -- error / timeout / 429 / no key --> FULL
-    SEL --> OUT[Playwright file:line args<br/>Vitest files + -t pattern]
-```
+![How it works: git diff, full-suite files, deterministic layer, Jev for black-box tests, selected tests, and the full suite whenever Jev fails](docs/assets/how-it-works.svg)
+
+![Animation: commit 3d8a57a from the replay benchmark, step by step, with the real output of npm run bench -- --check](docs/assets/how-it-works.gif)
+
+The animation follows one real commit of the benchmark (`3d8a57a`, the cart badge) and shows the real output of `JTI_JEV_MODE=replay npm run bench -- --check` ([MP4 version](docs/assets/how-it-works.mp4)). Source: [`docs/scenes/how-it-works.html`](docs/scenes/how-it-works.html), rendered with [`docs/scenes/export.sh`](docs/scenes/export.sh).
 
 **Safety policy, enforced in code ([`src/select.ts`](src/select.ts)):**
 
@@ -147,28 +139,6 @@ The demo history is stored as `git format-patch` files and rebuilt with fixed da
 - Runners supported today: Vitest and Playwright. The selection core is runner-agnostic, and adding one means writing a new `runnerArgs` branch.
 - Jev latency is not included in the wall-clock numbers, because the timed replay used recorded answers, and live latency was not measured. While recording, the gateway sometimes returned 429 "high demand". Those calls were retried with backoff. When retries ran out, the fail-safe ran the full suite, which is correct but saves nothing.
 
-## Explicado simple (ES)
-
-**El problema.** Cada vez que alguien cambia una línea de código, el sistema de integración continua corre *todas* las pruebas del producto. Es como mandar a revisar todo el carro, llantas, frenos, luces y motor, porque se cambió el espejo retrovisor. Es seguro, pero lento y caro, y el equipo espera.
-
-**La idea.** Revisar solo lo que el cambio pudo haber tocado, sin arriesgarse a dejar pasar un daño.
-
-**Cómo decide, en dos pasos:**
-
-1. **Primero, lo que se puede saber con certeza.** El código sabe qué pruebas usan qué archivos, como un plano del carro. Si cambió el espejo, sabemos exactamente qué piezas lo tocan. Eso no necesita IA.
-2. **Después, solo para lo dudoso, se le pregunta a Jev.** Algunas pruebas miran el producto "desde afuera", como un cliente que maneja el carro, y el plano no dice si el cambio las afecta. Para esas le preguntamos a Jev, una IA que no escribe textos: responde sí o no con un porcentaje de confianza ("85% de que sí puede afectar"). Si hay una duda razonable, desde un 20%, la prueba se corre.
-
-**La regla de oro.** Si Jev falla, tarda o no está disponible, se corren todas las pruebas. Ante la duda, nunca se salta nada. Además, todas las noches y en cada entrega final se corre la batería completa como red de seguridad.
-
-**¿Funciona?** Lo medimos reproduciendo 20 cambios reales de una tienda de ejemplo en la que sembramos 6 errores a propósito:
-
-- Se corrieron **70% menos pruebas** y el tiempo medido bajó de 143 s a 83 s (**42% menos**).
-- Se detectaron **todas** las pruebas que se rompieron (15 de 15) y los 6 cambios con error.
-- Sin la ayuda de Jev, la versión "rápida" dejaba escapar 4 de las 15 fallas. La versión "segura" sin Jev ahorraba mucho menos tiempo.
-- Todas las consultas a Jev del experimento costaron menos de un centavo de dólar.
-
-Es una prueba en una aplicación pequeña. En su proyecto el ahorro real se mide con su propio historial, que es justamente lo que ofrece el servicio.
-
 ## Service
 
 I set this up on your repository and measure it on your own history before you rely on it.
@@ -183,3 +153,7 @@ Supported today: TypeScript projects that use Vitest and/or Playwright on GitHub
 ## License
 
 MIT © Cristian Guerra
+
+## Author
+
+Cristian Guerra · QA · Medellín · [github.com/criguex](https://github.com/criguex)

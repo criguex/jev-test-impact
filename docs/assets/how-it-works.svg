@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="540" viewBox="0 0 1280 540" role="img" aria-label="How it works">
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#55DFBD" stroke-opacity="0.06" stroke-width="1"/>
+    </pattern>
+    <clipPath id="r"><rect width="1280" height="540" rx="20"/></clipPath>
+    <marker id="am" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#55DFBD"/></marker>
+    <marker id="ac" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#FB8176"/></marker>
+    <marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#FFC56E"/></marker>
+  </defs>
+  <g clip-path="url(#r)">
+    <rect width="1280" height="540" fill="#071B2B"/>
+    <rect width="1280" height="540" fill="url(#grid)"/>
+    <rect x="0" y="0" width="8" height="540" fill="#55DFBD"/>
+  </g>
+
+  <text x="48" y="58" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="28" font-weight="700" fill="#F4F7F5">How it works</text>
+  <text x="48" y="86" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="16" fill="#ABC0C8">Deterministic rules first, Jev only for black-box tests the rules can&#x27;t place, and the full suite on any doubt.</text>
+  <text x="1240" y="518" text-anchor="end" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="14" font-weight="600" fill="#55DFBD">Cristian Guerra · QA · Medellín</text>
+  <rect x="48" y="110" width="210" height="70" rx="12" fill="#0D2638" stroke="#214456" stroke-width="1.5"/>
+  <text x="64" y="138" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="16" font-weight="700" fill="#F4F7F5">git diff base...head</text>
+  <text x="64" y="160" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="13.5" fill="#ABC0C8">changed files and hunks</text>
+  <rect x="48" y="220" width="210" height="92" rx="12" fill="#0D2638" stroke="#214456" stroke-width="1.5"/>
+  <text x="64" y="248" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="16" font-weight="700" fill="#F4F7F5">Full-suite file?</text>
+  <text x="64" y="270" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="13.5" fill="#ABC0C8">package.json, lockfile,</text>
+  <text x="64" y="289" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="13.5" fill="#ABC0C8">runner or impact config</text>
+  <rect x="48" y="400" width="210" height="66" rx="12" fill="#0D2638" stroke="#FFC56E" stroke-width="2"/>
+  <text x="64" y="428" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="16" font-weight="700" fill="#F4F7F5"><tspan fill="#FFC56E">! </tspan>Run the full suite</text>
+  <text x="64" y="450" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="13.5" fill="#ABC0C8">the safe fallback</text>
+  <rect x="310" y="234" width="200" height="64" rx="12" fill="#0D2638" stroke="#214456" stroke-width="1.5"/>
+  <text x="326" y="262" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="16" font-weight="700" fill="#F4F7F5">Drop ignored files</text>
+  <text x="326" y="284" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="13.5" fill="#ABC0C8">docs/**, *.md</text>
+  <rect x="562" y="100" width="316" height="150" rx="12" fill="#0D2638" stroke="#214456" stroke-width="1.5"/>
+  <text x="578" y="128" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="16" font-weight="700" fill="#F4F7F5">Deterministic layer</text>
+  <text x="578" y="150" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="13.5" fill="#ABC0C8">changed test file → its own tests</text>
+  <text x="578" y="169" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="13.5" fill="#ABC0C8">import graph → unit tests that import it</text>
+  <text x="578" y="188" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="13.5" fill="#ABC0C8">ownership map → tagged tests</text>
+  <text x="578" y="207" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="13.5" fill="#ABC0C8">@smoke → always runs</text>
+  <text x="578" y="226" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="13.5" fill="#ABC0C8">binary diff → every black-box test</text>
+  <rect x="562" y="300" width="316" height="76" rx="12" fill="#0D2638" stroke="#214456" stroke-width="1.5"/>
+  <text x="578" y="328" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="16" font-weight="700" fill="#F4F7F5">Black-box tests left over?</text>
+  <text x="578" y="350" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="13.5" fill="#ABC0C8">end-to-end tests don&#x27;t import the code</text>
+  <text x="578" y="369" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="13.5" fill="#ABC0C8">they exercise, so no graph can place them</text>
+  <rect x="930" y="100" width="302" height="82" rx="12" fill="#0D2638" stroke="#55DFBD" stroke-width="2"/>
+  <text x="946" y="128" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="16" font-weight="700" fill="#F4F7F5"><tspan fill="#55DFBD">✓ </tspan>Selected tests</text>
+  <text x="946" y="150" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="13.5" fill="#ABC0C8">Playwright file:line arguments</text>
+  <text x="946" y="169" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="13.5" fill="#ABC0C8">Vitest files + -t pattern</text>
+  <rect x="930" y="292" width="302" height="118" rx="12" fill="#0D2638" stroke="#214456" stroke-width="1.5"/>
+  <text x="946" y="320" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="16" font-weight="700" fill="#F4F7F5">Jev · one noul per (diff, test)</text>
+  <text x="946" y="342" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="13.5" fill="#ABC0C8">“could this change alter this</text>
+  <text x="946" y="361" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="13.5" fill="#ABC0C8">test&#x27;s result?”</text>
+  <text x="946" y="380" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="13.5" fill="#ABC0C8">p ≥ 0.2 → selected (deliberately low)</text>
+  <text x="946" y="399" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="13.5" fill="#ABC0C8">batched, up to 40 questions per call</text>
+  <path d="M 153,180 L 153,218" fill="none" stroke="#55DFBD" stroke-width="2.2" stroke-linejoin="round" marker-end="url(#am)"/>
+  <path d="M 153,312 L 153,398" fill="none" stroke="#55DFBD" stroke-width="2.2" stroke-linejoin="round" marker-end="url(#am)"/>
+  <path d="M 258,266 L 308,266" fill="none" stroke="#55DFBD" stroke-width="2.2" stroke-linejoin="round" marker-end="url(#am)"/>
+  <path d="M 510,266 L 532,266 L 532,175 L 560,175" fill="none" stroke="#55DFBD" stroke-width="2.2" stroke-linejoin="round" marker-end="url(#am)"/>
+  <path d="M 720,250 L 720,298" fill="none" stroke="#55DFBD" stroke-width="2.2" stroke-linejoin="round" marker-end="url(#am)"/>
+  <path d="M 878,175 L 928,175" fill="none" stroke="#55DFBD" stroke-width="2.2" stroke-linejoin="round" marker-end="url(#am)"/>
+  <path d="M 878,338 L 928,338" fill="none" stroke="#55DFBD" stroke-width="2.2" stroke-linejoin="round" marker-end="url(#am)"/>
+  <path d="M 1081,292 L 1081,184" fill="none" stroke="#55DFBD" stroke-width="2.2" stroke-linejoin="round" marker-end="url(#am)"/>
+  <path d="M 1081,410 L 1081,488 L 153,488 L 153,468" fill="none" stroke="#FB8176" stroke-width="2.2" stroke-dasharray="6 5" stroke-linejoin="round" marker-end="url(#ac)"/>
+  <text x="48" y="524" text-anchor="start" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="14" font-weight="400" fill="#ABC0C8">Replay of 20 real commits: 395 of 1,311 test runs, 0 of 15 broken tests missed, about $0.003 of Jev.</text>
+  <rect x="136" y="346" width="35" height="20" rx="6" fill="#071B2B" stroke="#214456"/><text x="153" y="360" text-anchor="middle" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#F4F7F5">yes</text>
+  <rect x="269" y="248" width="28" height="20" rx="6" fill="#071B2B" stroke="#214456"/><text x="283" y="262" text-anchor="middle" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#F4F7F5">no</text>
+  <rect x="882" y="146" width="42" height="20" rx="6" fill="#071B2B" stroke="#214456"/><text x="903" y="160" text-anchor="middle" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#F4F7F5">rule</text>
+  <rect x="886" y="310" width="35" height="20" rx="6" fill="#071B2B" stroke="#214456"/><text x="903" y="324" text-anchor="middle" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#F4F7F5">yes</text>
+  <rect x="1050" y="230" width="62" height="20" rx="6" fill="#071B2B" stroke="#214456"/><text x="1081" y="244" text-anchor="middle" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#F4F7F5">answers</text>
+  <rect x="392" y="478" width="456" height="20" rx="6" fill="#071B2B" stroke="#214456"/><text x="620" y="492" text-anchor="middle" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#FB8176">Jev error · timeout · 429 · malformed · no key → everything runs</text>
+</svg>

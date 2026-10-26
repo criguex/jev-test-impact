@@ -4,6 +4,34 @@
 
 ![jev-test-impact: run only the tests your change touched; rules first, Jev for the ambiguous rest, the full suite on any doubt](docs/assets/banner.svg)
 
+## Explained like you're 8
+
+Imagine your workbook has 65 exercises and the teacher changes one page of the book. Checking all 65 answers again takes a long time, but most of them don't use that page. This project looks at what changed and only re-checks the exercises that could be affected. A map of "which exercise uses which page" decides most of it. For the exercises the map can't see, it asks Jev "could this change break it?", and if there's even a 20% chance, it re-checks. If Jev doesn't answer, it re-checks all 65, just in case.
+
+**A real example from this repo**
+
+- **Imagine** someone changes the shop app so the number of books in the cart shows up as a little badge (one file: `layout.ts`).
+- **What happens:** the rules pick 4 of the 65 tests. But two tests that click around the shop like a customer ("adding a book updates the header counter" and "removing the last line empties the cart") don't appear on the map.
+- **What the project does:** Jev says those two could break, 95% and 92% sure. In total 7 of 65 tests run, and all 3 that really broke are among them. With rules alone, 2 of those 3 would have slipped by.
+- **What we gain:** across 20 real changes, 70% fewer tests ran and 0 of the 15 broken tests were missed.
+
+![Animated story: a change to the cart badge, the rules pick 4 tests, Jev adds the ones the map can't see, 7 run and catch all 3 broken tests; if Jev doesn't answer, all 65 run](docs/assets/explained.gif)
+
+[MP4 version](docs/assets/explained.mp4) · source: [`docs/scenes/explained.html`](docs/scenes/explained.html)
+
+**Hard words**
+
+| Word | What it means |
+| --- | --- |
+| Test | A little robot check that the app still works |
+| Diff | The list of what changed, like the pages the teacher edited |
+| Import graph | The map of which code uses which file |
+| End-to-end test | A test that uses the app like a real customer, from the outside |
+| Jev | A fast AI that doesn't write sentences: it answers yes or no and says how sure it is |
+| Full suite | Running every test, the safe choice when in doubt |
+
+---
+
 **Run only the tests your change touched, without betting your release on a guess.**
 
 [![CI](https://github.com/criguex/jev-test-impact/actions/workflows/ci.yml/badge.svg)](https://github.com/criguex/jev-test-impact/actions/workflows/ci.yml)

@@ -4,6 +4,34 @@
 
 ![jev-test-impact: corre solo las pruebas que su cambio tocó; primero reglas, Jev para lo ambiguo y la suite completa ante cualquier duda](docs/assets/banner.svg)
 
+## Explicado para un niño de 8 años
+
+Imagina que tu cuaderno de tareas tiene 65 ejercicios y la profe cambia una página del libro. Revisar otra vez los 65 ejercicios toma mucho tiempo, pero la mayoría ni usan esa página. Este proyecto mira qué cambió y solo vuelve a revisar los ejercicios que se pueden ver afectados. Un mapa de "qué ejercicio usa qué página" decide casi todo. Para los ejercicios que el mapa no ve, le pregunta a Jev "¿este cambio lo puede dañar?", y si hay aunque sea un 20% de probabilidad, lo revisa. Si Jev no responde, revisa los 65, por si acaso.
+
+**Un ejemplo real de este repo**
+
+- **Imagina** que alguien cambia la app de la tienda para que el número de libros del carrito salga en un globito (un solo archivo: `layout.ts`).
+- **Qué pasa:** las reglas escogen 4 de las 65 pruebas. Pero hay dos pruebas que usan la tienda como un cliente ("agregar un libro actualiza el contador" y "quitar la última línea vacía el carrito") que no salen en el mapa.
+- **Qué hace el proyecto:** Jev dice que esas dos se pueden dañar, con 95% y 92% de seguridad. En total corren 7 de 65 pruebas, y las 3 que de verdad se rompieron están entre ellas. Solo con las reglas, 2 de esas 3 se habrían escapado.
+- **Qué ganamos:** en 20 cambios reales corrieron 70% menos pruebas y no se escapó ninguna de las 15 pruebas rotas.
+
+![Historia animada: un cambio en el globito del carrito, las reglas escogen 4 pruebas, Jev agrega las que el mapa no ve, corren 7 y atrapan las 3 rotas; si Jev no responde, corren las 65](docs/assets/explained.es.gif)
+
+[Versión MP4](docs/assets/explained.es.mp4) · fuente: [`docs/scenes/explained.html`](docs/scenes/explained.html) (con `?lang=es`)
+
+**Palabras difíciles**
+
+| Palabra | Qué quiere decir |
+| --- | --- |
+| Prueba (test) | Una revisión robot de que la app sigue funcionando |
+| Diff | La lista de lo que cambió, como las páginas que editó la profe |
+| Grafo de imports | El mapa de qué código usa qué archivo |
+| Prueba end-to-end | Una prueba que usa la app como un cliente de verdad, desde afuera |
+| Jev | Una IA rápida que no escribe frases: responde sí o no y dice qué tan segura está |
+| Suite completa | Correr todas las pruebas, lo seguro cuando hay dudas |
+
+---
+
 **Corra solo las pruebas que su cambio tocó, sin apostar su release a una suposición.**
 
 [![CI](https://github.com/criguex/jev-test-impact/actions/workflows/ci.yml/badge.svg)](https://github.com/criguex/jev-test-impact/actions/workflows/ci.yml)
